@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>PINKSLIPS</title>
+	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	 {% load static %}
+	 <link rel="stylesheet" href="{% static 'pinkslips/css/style.css' %}" media="screen" title="no title"  charset="utf-8">
+</head>
+<body>
+<div class="container">
+	<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <p class="navbar-brand">
+	      	<span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span>
+	      </p>
+	      <p class="navbar-brand">
+	      	<a href="/profile">{{ user.username }}</a>
+	      </p>
+	      <p class="navbar-brand">
+	      	<a href="/matches">Matches ({{ request.session.num }})</a>
+	      </p>
+	      <p class="navbar-brand">
+	      	<a href="/edit">Edit Profile</a>
+	      </p>
+	    </div>
+	    <p class="navbar-brand navbar-right"><a href="/logout" class="navbar-link">Logout</a></p>
+	  </div>
+	</nav>
+	<div class="row">
+		<div class="column centerlogo">
+			<a href="/dislike"><button class="btn btn-danger right"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span></button></a>
+		</div>
+		<div class="column centerlogo">
+			<a href="/like"><button class="btn btn-success right"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></button></a>
+		</div>
+	</div>
+	<div class="container ">
+		<div class="row">
+
+			<div class="imgdiv centerlogo">
+
+			<img src="{{ opponent.url }}" alt="gtr" class="img">
+
+		</div>
+		<div class="column">
+			<h3 class="centerlogo">{{ opponent.username }}</h3>
+			<table class="table">
+			<thead>
+			  <tr>
+			    <th></th>
+			    <th></th>
+			  </tr>
+			</thead>
+			<tbody>
+			  <tr>
+			    <td>Year</td>
+			    <td>{{ opponent.year }}</td>
+			  </tr>
+			  <tr>
+			    <td>Make</td>
+			    <td>{{ opponent.make }}</td>
+			  </tr>
+			  <tr>
+			    <td>Model</td>
+			    <td>{{ opponent.model }}</td>
+			  </tr>
+			  <tr>
+			    <td>Power</td>
+			    <td>{{ opponent.power }} hp</td>
+			  </tr>
+			  <tr>
+			    <td>Weight</td>
+			    <td>{{ opponent.weight}} lbs</td>
+			  </tr>
+			  <tr>
+			    <td>Drivetrain</td>
+			    <td>{{ opponent.dtrain }}</td>
+			  </tr>
+			</tbody>
+			</table>
+			<div>
+				<p>Description: </p>
+				<p class="text-center">{{ opponent.desc }}</p>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+</body>
+</html>

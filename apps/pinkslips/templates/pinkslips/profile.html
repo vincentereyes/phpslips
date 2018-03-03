@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{ user.username }}'s profile</title>
+	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	 {% load static %}
+	 <link rel="stylesheet" href="{% static 'pinkslips/css/style.css' %}" media="screen" title="no title"  charset="utf-8">
+</head>
+<body>
+<div class="container">
+	<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <p class="navbar-brand">
+	      	<span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span>
+	      </p>
+	      <p class="navbar-brand">
+	      	<a href="/home">Home</a>
+	      </p>
+	      <p class="navbar-brand">
+	      	<a href="/matches">Matches ({{ request.session.num }})</a>
+	      </p>
+	      <p class="navbar-brand">
+	      	<a href="/edit">Edit Profile</a>
+	      </p>
+	    </div>
+	    <p class="navbar-brand navbar-right"><a href="/logout" class="navbar-link">Logout</a></p>
+	  </div>
+	</nav>
+	<div><h2>Your Profile</h2></div>
+	<div class="container ">
+	<div class="row">
+		<div class="column centerlogo">
+			<button class="btn btn-danger right" disabled><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span></button>
+		</div>
+		<div class="column centerlogo">
+			<button class="btn btn-success right" disabled><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></button>
+		</div>
+	</div>
+		<div class="row">
+
+			<div class="imgdiv centerlogo">
+
+			<img src="{{ user.url }}" alt="gtr" class="img">
+
+		</div>
+		<div class="column">
+			<table class="table">
+			<thead>
+			  <tr>
+			    <th></th>
+			    <th></th>
+			  </tr>
+			</thead>
+			<tbody>
+			  <tr>
+			    <td>Year</td>
+			    <td>{{ user.year }}</td>
+			  </tr>
+			  <tr>
+			    <td>Make</td>
+			    <td>{{ user.make }}</td>
+			  </tr>
+			  <tr>
+			    <td>Model</td>
+			    <td>{{ user.model }}</td>
+			  </tr>
+			  <tr>
+			    <td>Power</td>
+			    <td>{{ user.power }} hp</td>
+			  </tr>
+			  <tr>
+			    <td>Weight</td>
+			    <td>{{ user.weight}} lbs</td>
+			  </tr>
+			  <tr>
+			    <td>Drivetrain</td>
+			    <td>{{ user.dtrain }}</td>
+			  </tr>
+			</tbody>
+			</table>
+			<div>
+				<p>Description: </p>
+				<p class="text-center">{{ user.desc }}</p>
+			</div>
+		</div>
+	</div>
+	</div>
+</div>
+</body>
+</html>
